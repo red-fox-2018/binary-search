@@ -20,30 +20,16 @@ function ownSort(arr) {
 
 function binarySearch(search, array) {
   // Your searching code
-  let mid = Math.floor((array.length-1)/2);
-  if (array[mid] === search) {
-    return mid
-  }else if(search > array[mid]) {
-    let awal = mid;
-    mid = Math.floor(((array.length-1)-(mid))/2)
-    mid = mid+awal;
-    if (array[mid] === search) {
-      return mid
-    }else if(search > array[mid]) {
-      let awal = mid;
-      mid = Math.floor(((array.length-1)-(mid))/2)
-      mid = mid+awal;
-      if (array[mid] === search) {
-        return mid
-      }else {
-        return -1
-      }
+  let awal = 0;
+  let akhir = array.length-1;
+  let mid = 0;     
+    while (awal <= akhir){
+      mid = Math.floor((awal+akhir)/2);     
+      if (array[mid] === search) return mid ; 
+      else if (array[mid] < search) awal = mid+1;
+      else akhir = mid-1;        
     }
-  }else if(search < array[mid]) {
-    // console.log(a)
-    let akhir = mid;
-    mid = Math.floor(((array.length-1)-(mid))/2);
-  }
+    return -1 ;
 }
 var arrayGenapSorted = ownSort(testArrayGenap);
 var arrayGanjilSorted = ownSort(testArrayGanjil);
@@ -53,13 +39,43 @@ console.log(binarySearch(3, [1,2,3,4,5]) === 2) // true
 console.log(binarySearch(35, [13,19,24,29,32,37,43]) === -1) //true
 console.log(binarySearch(135, [100,120,130,135,150,170]) === 3) //true
 
-// console.log(binarySearch(8, arrayGenapSorted))
-// console.log(binarySearch(10, arrayGenapSorted))
-// console.log(binarySearch(33, arrayGenapSorted))
-// console.log(binarySearch(53, arrayGanjilSorted))
-// console.log(binarySearch(3, arrayGanjilSorted))
-// console.log(binarySearch(2, arrayGanjilSorted))
+console.log(binarySearch(8, arrayGenapSorted))
+console.log(binarySearch(10, arrayGenapSorted))
+console.log(binarySearch(33, arrayGenapSorted))
+console.log(binarySearch(53, arrayGanjilSorted))
+console.log(binarySearch(3, arrayGanjilSorted))
+console.log(binarySearch(2, arrayGanjilSorted))
 
-module.exports = {
-  binarySearch
-}
+// module.exports = {
+//   binarySearch
+// }
+
+
+// let mid = Math.floor((array.length-1)/2);
+  // if (array[mid] === search) return mid;
+  // if(search > array[mid]) {
+  //   for (let i = mid; i < array.length; i++) {
+  //     if (array[mid] === search) {
+  //         return midb
+  //       }
+  //   }
+    // let awal = mid;
+    // mid = Math.floor(((array.length-1)-(mid))/2)
+    // mid = mid+awal;
+    // if (array[mid] === search) {
+    //   return mid
+    // }else if(search > array[mid]) {
+    //   let awal = mid;
+    //   mid = Math.floor(((array.length-1)-(mid))/2)
+    //   mid = mid+awal;
+    //   if (array[mid] === search) {
+    //     return mid
+    //   }else {
+    //     return -1
+    //   }
+    // }
+  // }else if(search < array[mid]) {
+  //   // console.log(a)
+  //   let akhir = mid;
+  //   mid = Math.floor(((array.length-1)-(mid))/2);
+  // }
