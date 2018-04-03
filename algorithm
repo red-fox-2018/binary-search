@@ -1,0 +1,68 @@
+- buat variable "testArrayGenap" dan "testArrayGanjil" untuk menyimpan array yang berisi angka yang akan diproses.
+
+  * testArrayGenap = berisikan angka genap
+  * testArrayGanjil = berisikan angka ganjil
+
+- buat function ownSort dengan paramerter "arr"
+
+  * parameter arr akan menerima nilai dari variable "testArrayGenap" dan "testArrayGanjil",
+    yang kemudian angka yang telah di proses di function ini akan dibungkus dalam satu variable
+    bernama "arrayGenapSorted" dan "arrayGanjilSorted".
+
+  => buat  sebuah perulangan dengan variable "i" sama dengan 0, buat kondisi agar perulangan dilakukan
+     sebanyak jumlah angka "array" yang diterima dari paramerter.
+
+     * sediakan variable "tmp" dan isi value sama dengan "arr" index ke "i"
+
+     => buat nested looping dengan variable "j" sama dengan "i" dikurang 1, buat kondisi agar perulangan dilakukan
+        sampai ditemukan angka dari "arr" index ke "j" lebih besar dari "tmp". (looping decrement)
+
+        # selama perulangan masih berjalan ganti value "arr" index ke "j" + 1 dengan "arr" index ke "j"
+
+     * lalu ganti nilai "arr" index ke "j" terakhir + 1 dengan nilai yang ada di "tmp"
+
+  => jika proses perulangan selesai
+
+     => return arr
+
+
+- buat function binary_search dengan parameter "search", "array", "bawah", "atas".
+
+  * search akan menerima value berupa angka, angka ini merupakan value yang akan dicari di dalam "array" nantinya.
+  * array akan menerima value berupa object array
+  * bawah akan menerima value berupa angka untuk menentukan batas bawah.
+  * atas akan menerima value berupa angka untuk menentukan batas atas.
+
+  # sediakan variable mid dengan value hasil Math floor dari (bawah + atas) / 2
+
+  - buat kondisi :
+
+    # jika "bawah" sama dengan "mid" atau "atas" sama dengan "mid", maka :
+
+      * jika "array" index ke "mid" sama dengan nilai search, maka :
+
+        - return mid
+
+      * jika "array" index ke "mid" tidak sama dengan nilai search, maka :
+
+        -return -1
+
+    # jika kondisi diatas tidak terpenuhi, maka :
+
+      * jika "search" sama dengan "array" index ke "mid", maka :
+
+        - return "mid"
+
+      * jika "search" tidak sama dengan "array" index ke "mid", maka :
+
+        # jika "array" index ke "mid" lebih besar dari search, maka :
+
+          - ganti value "atas" dengan "mid" - 1
+
+          => return function binary_search dengan parameter "search", "array", "bawah" dan "atas".
+
+        # jika "array" index ke "mid" lebih kecil dari search, maka :
+
+          - ganti value "bawah" dengan "mid" + 1
+
+          => return function binary_search dengan parameter "search", "array", "bawah" dan "atas".
