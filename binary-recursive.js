@@ -19,11 +19,11 @@ function ownSort(arr) {
   return arr
 }
 
-function binary_search (search, array,min,max) {
+function binary_search (search, array,min = 0,max = array.length - 1) {
   // console.log(search, array,min,max);
   var middle = Math.floor((min + max)/2)
 
-  if(min === middle|| max === middle){
+  if(min >= max){
     if(array[middle] !== search){
         return -1
     }else{
@@ -45,20 +45,18 @@ function binary_search (search, array,min,max) {
 
 var arrayGenapSorted = ownSort(testArrayGenap)
 var arrayGanjilSorted = ownSort(testArrayGanjil)
-var minGen = 0
-var maxGen = arrayGenapSorted.length-1
-var minGan = 0
-var maxGan = arrayGanjilSorted.length-1
+
 // Driver code
 console.log(arrayGenapSorted)
 console.log(arrayGanjilSorted)
-console.log(binary_search(8, arrayGenapSorted,minGen,maxGen))
-console.log(binary_search(10, arrayGenapSorted,minGen,maxGen))
-console.log(binary_search(33, arrayGenapSorted,minGen,maxGen))
+console.log(binary_search(8, arrayGenapSorted))
+console.log(binary_search(18, arrayGenapSorted))
+console.log(binary_search(10, arrayGenapSorted))
+console.log(binary_search(33, arrayGenapSorted))
 
-console.log(binary_search(53, arrayGanjilSorted,minGan,maxGan))
-console.log(binary_search(3, arrayGanjilSorted,minGan,maxGan))
-console.log(binary_search(2, arrayGanjilSorted,minGan,maxGan))
+console.log(binary_search(53, arrayGanjilSorted))
+console.log(binary_search(3, arrayGanjilSorted))
+console.log(binary_search(2, arrayGanjilSorted))
 
 module.exports = {
   binary_search
