@@ -26,7 +26,7 @@ function binary_search (search, array) {
   let mid;
 
   while (left <= right) {
-    mid = Math.round(left + (right - left) / 2);
+    mid = Math.floor(left + (right - left) / 2);
     if (array[mid] === search) {
       return mid;
     }
