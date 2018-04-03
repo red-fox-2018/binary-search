@@ -14,7 +14,6 @@ function ownSort(arr) {
       }
     }
   }
-  // console.log(arr)
   return arr
 }
 
@@ -49,33 +48,3 @@ console.log(binarySearch(2, arrayGanjilSorted))
 // module.exports = {
 //   binarySearch
 // }
-
-
-// let mid = Math.floor((array.length-1)/2);
-  // if (array[mid] === search) return mid;
-  // if(search > array[mid]) {
-  //   for (let i = mid; i < array.length; i++) {
-  //     if (array[mid] === search) {
-  //         return midb
-  //       }
-  //   }
-    // let awal = mid;
-    // mid = Math.floor(((array.length-1)-(mid))/2)
-    // mid = mid+awal;
-    // if (array[mid] === search) {
-    //   return mid
-    // }else if(search > array[mid]) {
-    //   let awal = mid;
-    //   mid = Math.floor(((array.length-1)-(mid))/2)
-    //   mid = mid+awal;
-    //   if (array[mid] === search) {
-    //     return mid
-    //   }else {
-    //     return -1
-    //   }
-    // }
-  // }else if(search < array[mid]) {
-  //   // console.log(a)
-  //   let akhir = mid;
-  //   mid = Math.floor(((array.length-1)-(mid))/2);
-  // }
