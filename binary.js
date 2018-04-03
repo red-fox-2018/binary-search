@@ -17,41 +17,50 @@ function ownSort(arr) {
 }
 
 function binarySearch (search, array) {
-  var midInd = Math.floor((array.length - 1) / 2);
-  var tempArr = [];
-  if (array[midInd] === search) {
-    return true;
-  } else {
-    if (array.length === 1) {
-      if (array[0] === search) {
-        return true;
-      } else {
-        return false;
-      }
-    } else
-    if (search > array[midInd]) {
-      tempArr = array.slice(midInd, array.length)
-      return binarySearch(search, tempArr)
-    } else {
-      tempArr = array.slice(0, midInd)
-      return binarySearch(search, tempArr)
-    }
-  }
-
-  // var mid = Math.floor(array.length / 2);
-  // var endInd = array.length - 1;
-  // var firstInd = 0;
-  // while (true) {
-  //   if (array[mid] === search) {
-  //     return mid;
-  //   }
-  //   if (search > array[mid]) {
-  //     firstInd = mid
-  //     mid = Math.floor((endInd + mid) / 2);
+  // var midInd = Math.floor((array.length - 1) / 2);
+  // var tempArr = [];
+  // if (array[midInd] === search) {
+  //   return true;
+  // } else {
+  //   if (array.length === 1) {
+  //     if (array[0] === search) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   } else
+  //   if (search > array[midInd]) {
+  //     tempArr = array.slice(midInd, array.length)
+  //     return binarySearch(search, tempArr)
   //   } else {
-  //     mid = Math.floor((firstInd + mid) / 2)
+  //     tempArr = array.slice(0, midInd)
+  //     return binarySearch(search, tempArr)
   //   }
   // }
+
+  var mid = Math.floor(array.length / 2);
+  var endInd = array.length - 1;
+  var firstInd = 0;
+  while ((mid - firstInd) !== 1 && (endInd - mid) !== 1) {
+    if (array[mid] === search) {
+      return 'located at index ' + mid;
+    }
+    if (search > array[mid]) {
+      firstInd = mid;
+      mid = Math.floor((endInd + mid) / 2);
+    } else {
+      endInd = mid;
+      mid = Math.floor((firstInd + mid) / 2)
+    }
+  }
+  if (array[firstInd] === search) {
+    return 'located at index ' + firstInd;
+  } else if (array[mid] === search) {
+    return 'located at index ' + mid;
+  } else if (array[endInd] === search) {
+    return 'located at index ' + endInd;
+  }
+  return -1;
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
