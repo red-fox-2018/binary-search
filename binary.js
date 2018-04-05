@@ -25,7 +25,7 @@ function binary_search (search, array) {
   while(minLength<=maxLength){
   	var midIndex=Math.floor((minLength+maxLength)/2)
   	if(array[midIndex]===search){
-  		return true
+  		return midIndex
   	}
   	if(array[midIndex]>search){
   		maxLength=midIndex-1
@@ -35,7 +35,7 @@ function binary_search (search, array) {
   	}
   }
   
-return 0;
+return -1;
 }
 
 var arrayGenapSorted =  ownSort(testArrayGenap)
@@ -43,8 +43,8 @@ var arrayGanjilSorted = ownSort(testArrayGanjil)
 
 // // Driver code
  console.log(binary_search(8, arrayGenapSorted))
-// console.log(binary_search(10, arrayGenapSorted))
-// console.log(binary_search(33, arrayGenapSorted))
+ console.log(binary_search(10, arrayGenapSorted))
+ console.log(binary_search(33, arrayGenapSorted))
 
 // console.log(binary_search(53, arrayGanjilSorted))
 // console.log(binary_search(3, arrayGanjilSorted))
