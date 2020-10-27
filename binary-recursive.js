@@ -19,31 +19,38 @@ function ownSort(arr) {
   return arr
 }
 
-function binary_search (search, array) {
-  // Your searching code
-  var min = 0
-  var max = array.length-1
-  while (min <= max) {
-    var middle = Math.floor((min + max)/2)
-    if (array[middle] === search) {
+function binary_search (search, array,min = 0,max = array.length - 1) {
+  // console.log(search, array,min,max);
+  var middle = Math.floor((min + max)/2)
+
+  if(min >= max){
+    if(array[middle] !== search){
+        return -1
+    }else{
       return middle
     }
-    if (array[middle] < search) {
-      min = middle + 1
-    } else {
-      max = middle - 1
-    }
+  }else{
+    if (array[middle] === search) {
+        return middle
+      }else{
+        if (array[middle] < search) {
+          min = middle + 1
+        } else {
+          max = middle - 1
+        }
+        return binary_search (search, array,min,max)
+      }
   }
-  return -1;
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
 var arrayGanjilSorted = ownSort(testArrayGanjil)
 
 // Driver code
-// console.log(arrayGenapSorted)
-// console.log(arrayGanjilSorted)
+console.log(arrayGenapSorted)
+console.log(arrayGanjilSorted)
 console.log(binary_search(8, arrayGenapSorted))
+console.log(binary_search(18, arrayGenapSorted))
 console.log(binary_search(10, arrayGenapSorted))
 console.log(binary_search(33, arrayGenapSorted))
 
